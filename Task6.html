@@ -17,12 +17,19 @@
 </body>
 
 <script>
-
+	
 	document.getElementById("box").addEventListener("keyup", change);
 	
 	function change(event)
 	{
-		document.getElementById("text").innerHTML = event.currentTarget.value;
+		var val = event.currentTarget.value;
+		var array = val.split("");
+		var len = array.length;
+		for(var i = 0;  i < len; i++)
+		{
+			array.splice(2 * i + 1, 0, '@');
+		}
+		document.getElementById("text").innerHTML = array.join("");
 	}
 </script>
 
