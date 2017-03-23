@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>
+		Task 4
+	</title>
+</head>
+
+<script>
+
+
+</script>
+
+<body>
+	<ul id = "list">
+		<li onclick = "deleteMe()">
+			Countries
+		</li>
+	</ul>
+	
+	<button id = "double">
+		Double Me
+	</button>
+	
+	<script>
+	var countries = ["Romania", "Spania", "Germania", "Bulgaria", "Serbia", "Ucraina", "Franta"];
+	var element = document.getElementById("list");
+	
+	document.getElementById("double").addEventListener("click", doubleMe);
+	writeList();
+	
+	function writeList()
+	{
+		for(var i = 0; i < countries.length; i++)
+		{
+			var tempTag = document.createElement("li");        
+			var node = document.createTextNode(countries[i]);
+			tempTag.appendChild(node);
+			tempTag.setAttribute("id", i);
+
+			element.appendChild(tempTag);
+		
+			tempTag.addEventListener("click", deleteMe);
+		
+		}
+	}
+	
+	function deleteMe(event)
+	{
+		//alert("Hi");
+		document.getElementById("list").removeChild(event.currentTarget);
+	}
+	
+	function doubleMe()
+	{
+		countries = countries.concat(countries);
+		alert(countries);
+		/*var len = countries.length;
+		for(var i = 0; i < len; i++)
+		{
+			countries.push(countries[i]);
+		}*/
+		//writeList();
+	}
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>
+		Task 6
+	</title>
+	<link rel = "stylesheet" type = "text/css" href = "style6.css">
+</head>
+
+<body>
+	<form id = "formular" class = "formular">
+		<input id = "box" type="text" value="Write something here">
+		<p id = "text" class = "real-time-text"></p>
+		<br>
+		<input id = "buton" type = "button" value="Push me">
+	</form>
+	<br>
+</body>
+
+<script>
+
+	document.getElementById("box").addEventListener("keyup", change);
+	
+	function change(event)
+	{
+		document.getElementById("text").innerHTML = event.currentTarget.value;
+	}
+</script>
+
+
+</html>

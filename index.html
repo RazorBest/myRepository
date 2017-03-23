@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>
+			Pagina
+		</title>
+		<link rel = "stylesheet" type = "text/css" href = "style.css">
+	</head>
+
+<body>
+	
+	<canvas id="screen" width="600" height="600" style="border:2px solid black;">
+	</canvas>
+
+<script>
+var c = document.getElementById("screen");
+var g = c.getContext("2d");
+var running = true;
+var head = {x:100, y:100};
+var snake = new Array();
+var velX = 1, velY = 0;
+//g.moveTo(0,0);
+//g.lineTo(200,100);
+
+snake.push(head);
+push();
+push();
+push();
+push();
+function push()
+{
+	if(velX >= 1)
+	{
+		//alert(snake.length);
+		var temp = {x:snake[snake.length - 1].x - 30, y:snake[snake.length - 1].y};
+		snake.push(temp);
+	}
+}
+
+function render()
+{
+	g.fillStyle = "white";
+	g.fillRect(0, 0, 600, 600);
+	g.fillStyle = "#FF0000";
+	for(var i = 0; i < snake.length; i++)
+	{
+		var temp = snake[i];
+		temp.x += velX * 30;
+		temp.y += velY * 30;
+		g.fillRect(temp.x, temp.y, 30, 30);
+	}
+	
+}
+setInterval(render, 600);
+</script>
+</body>
+
+</html>
