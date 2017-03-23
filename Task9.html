@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>
+		Task 9
+	</title>
+	<link rel = "stylesheet" type = "text/css" href = "style9.css">
+</head>
+
+
+
+<body class = "main-page">
+	
+</body>
+
+<script>
+	var top = 1;
+	window.addEventListener("scroll", check_middle);
+	
+	function check_middle()
+	{
+		console.log("checking...", window.scrollY);
+		if(window.scrollY > 600 && window.scrollY < 650)
+		{
+			console.log('middle');
+		}
+		else if(window.scrollY == 0)
+		{
+			console.log('top');
+		}
+	}
+</script>
+</html>
