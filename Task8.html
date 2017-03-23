@@ -1,0 +1,100 @@
+<html>
+<head>
+	<title>
+		Task 8
+	</title>
+</head>
+<body>
+	<form id = "formular" class = "formular">
+		<input id = "box1" type="text" value="Write something here">
+		<p id = "text" class = "real-time-text"></p>
+		<br>
+		<input id = "buton1" type = "button" value="Decrypt me">
+	</form>
+	<p id = "field1">
+	</p>
+	<br><br>
+	<form id = "formular" class = "formular">
+		<input id = "box2" type="text" value="Write something here">
+		<p id = "text" class = "real-time-text"></p>
+		<br>
+		<input id = "buton2" type = "button" value="Decrypt me">
+	</form>
+	<p id = "field2">
+	</p>
+	<br><br>
+	<form id = "formular" class = "formular">
+		<input id = "box3" type="text" value="Write something here">
+		<p id = "text" class = "real-time-text"></p>
+		<br>
+		<input id = "buton3" type = "button" value="Decrypt me">
+	</form>
+	<p id = "field3">
+	</p>
+</body>
+
+<script>
+	
+	document.getElementById("buton1").addEventListener("click", decrypt1);
+	document.getElementById("buton2").addEventListener("click", decrypt2);
+	document.getElementById("buton3").addEventListener("click", decrypt3);
+	
+	problem();
+	
+	function decrypt1()
+	{
+		var msg = document.getElementById("box1").value;
+		var len = msg.length;
+		var plain = [];
+		
+		for(var i = 1; i < len; i++)
+		{
+			if(msg[i - 1] == ' ')
+				plain.push(msg[i]);
+		}
+		document.getElementById("field1").innerHTML = plain.join("");
+	}
+	
+	function decrypt2()
+	{
+		var msg = document.getElementById("box2").value;
+		var len = msg.length;
+		var plain = [];
+		var last = 0;
+		
+		for(var i = 0; i < len; i += 3)
+		{
+			plain.push(msg[i]);
+		}
+		document.getElementById("field2").innerHTML = plain.join("");
+	}
+	
+	function decrypt3()
+	{
+		var msg = document.getElementById("box3").value;
+		var len = msg.length;
+		var plain = [];
+		var last = 0;
+		
+		for(var i = 0; i < len; i ++)
+		{
+			if(msg[i] >= 'A' && msg[i] <= 'Z')
+				plain.push(msg[i]);
+			else if(msg[i] == ' ')
+				plain.push(msg[i]);
+		}
+		document.getElementById("field3").innerHTML = plain.join("");
+	}
+	
+	function problem()
+	{
+		var s = 0;
+		for(var i = 2; i <= 1000000; i += 2)
+			s += i;
+		for(var i = 1; i <= 1000000; i += 2)
+			s -= i;
+		console.log(s);
+	}
+</script>
+
+</html>
