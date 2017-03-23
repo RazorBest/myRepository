@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>
+		Task 2
+	</title>
+</head>
+
+
+
+<body>
+	<form id = "formular">
+		<input id = "box" type="text" value="Write something here">
+		<br>
+		<input id = "buton" type = "button" value="Push me">
+	</form>
+	<br>
+	<p id="wrapper">sss
+	</p>
+	<a href="Task3.html">Next task</a>
+</body>
+
+<script>
+
+	document.getElementById("buton").addEventListener("click", show);
+	
+	function show()
+	{
+		var text = document.getElementById("box").value;
+		//alert(text);
+		document.getElementById("wrapper").innerHTML = text;
+	}
+</script>
+
+</html>
